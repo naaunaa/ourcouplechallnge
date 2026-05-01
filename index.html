@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Couple Challenge 💕</title>
+<link rel="manifest" href="/ourcouple/manifest.json">
+<meta name="theme-color" content="#F060B0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Couple Challenge 💕">
+<link rel="apple-touch-icon" href="/ourcouple/icons/icon-180.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/ourcouple/icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/ourcouple/icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/ourcouple/icons/icon-512.png">
+<meta name="mobile-web-app-capable" content="yes">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+:root{
+--una-50:#FFF8FD;--una-100:#FFE8F6;--una-200:#FFD0EC;--una-300:#FFB0DC;--una-400:#FF88C8;--una-500:#F060B0;--una-600:#C84090;
+--viki-50:#F0FAFF;--viki-100:#D8F2FF;--viki-200:#B0E4FF;--viki-300:#80D0FF;--viki-400:#50BBFF;--viki-500:#28A8F0;--viki-600:#0888D0;
+--neutral-50:#FAFAFA;--neutral-100:#F4F4F5;--neutral-200:#E4E4E7;--neutral-300:#D1D1D6;--neutral-400:#A1A1AA;--neutral-500:#71717A;--neutral-600:#52525B;--neutral-700:#3F3F46;--neutral-800:#27272A;
+--green:#5CC88A;--green-light:#EAFAF2;--red:#FF8080;--red-light:#FFF0F0;--amber:#FFBB30;--amber-light:#FFF8E0;
+--shadow-xs:0 1px 2px rgba(0,0,0,0.06);--shadow-sm:0 1px 6px rgba(0,0,0,0.08);--shadow-md:0 4px 16px rgba(0,0,0,0.10);--shadow-lg:0 8px 30px rgba(0,0,0,0.13);
+--r-sm:10px;--r-md:16px;--r-lg:22px;--r-xl:30px;
+}
+body{background:#F5EEFF;min-height:100vh;overflow-x:hidden}
+.screen{display:none;min-height:100vh;flex-direction:column}
+.screen.active{display:flex}
+
+/* SPLASH */
+#splash{background:linear-gradient(160deg,#FFF0FA 0%,#EDE8FF 100%);align-items:center;justify-content:center;text-align:center;padding:48px 28px}
+.splash-logo{font-size:3.2rem;margin-bottom:10px}
+.splash-title{font-size:2rem;font-weight:800;color:var(--neutral-800);letter-spacing:-0.5px;margin-bottom:6px}
+.splash-sub{font-size:0.92rem;color:var(--neutral-500);margin-bottom:52px}
+.profile-row{display:flex;gap:18px;justify-content:center}
+.p-card{background:#fff;border-radius:var(--r-lg);padding:28px 22px;cursor:pointer;text-align:center;min-width:138px;box-shadow:var(--shadow-md);border:2px solid transparent;transition:all 0.2s}
+.p-card:active{transform:scale(0.96)}
+.p-card-una:hover,.p-card-una:focus{border-color:var(--una-300);background:var(--una-50)}
+.p-card-viki:hover,.p-card-viki:focus{border-color:var(--viki-300);background:var(--viki-50)}
+.p-emoji{font-size:2.6rem;margin-bottom:10px}
+.p-name{font-size:1.1rem;font-weight:700;color:var(--neutral-800)}
+.p-sub{font-size:0.76rem;color:var(--neutral-400);margin-top:3px}
+
+/* START SCREEN */
+#start-screen{background:var(--neutral-50);align-items:center;justify-content:center;text-align:center;padding:40px 28px}
+.ss-emoji{font-size:4rem;margin-bottom:18px}
+.ss-title{font-size:1.6rem;font-weight:800;color:var(--neutral-800);margin-bottom:8px}
+.ss-sub{font-size:0.9rem;color:var(--neutral-500);line-height:1.65;margin-bottom:40px}
+.ss-btn{padding:16px 44px;border-radius:var(--r-xl);border:none;font-size:1rem;font-weight:700;cursor:pointer;color:#fff;box-shadow:var(--shadow-md);transition:all 0.2s}
+.ss-btn:active{transform:scale(0.96);opacity:0.9}
+
+/* HEADER */
+.header{padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.hdr-una{background:rgba(255,240,252,0.97);backdrop-filter:blur(14px);border-bottom:1.5px solid #FFD0EC}
+.hdr-viki{background:rgba(240,250,255,0.97);backdrop-filter:blur(14px);border-bottom:1.5px solid #B0E4FF}
+.hdr-left{display:flex;align-items:center;gap:10px}
+.hdr-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.hdr-av-una{background:var(--una-100)}
+.hdr-av-viki{background:var(--viki-100)}
+.hdr-name{font-size:1rem;font-weight:700;color:var(--neutral-800)}
+.hdr-day{font-size:0.73rem;color:var(--neutral-400)}
+.hdr-right{display:flex;gap:8px}
+.icon-btn{width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,0.05);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.95rem;transition:background 0.15s}
+.icon-btn:active{background:rgba(0,0,0,0.12)}
+
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#FFFFFF;border-top:1.5px solid #E8DAFF;display:flex;z-index:200;padding:4px 0 6px}
+.nav-btn{flex:1;padding:7px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;cursor:pointer;font-size:9.5px;color:var(--neutral-400);transition:color 0.15s}
+.nav-btn.a-una{color:var(--una-500);font-weight:600}
+.nav-btn.a-viki{color:var(--viki-500);font-weight:600}
+.nav-icon{font-size:1.2rem}
+
+/* CONTENT */
+.content{flex:1;overflow-y:auto;padding:16px;padding-bottom:86px}
+.hidden{display:none!important}
+
+/* CARDS */
+.card{background:#FFFFFF;border-radius:var(--r-md);padding:18px;margin-bottom:14px;box-shadow:0 2px 12px rgba(160,130,200,0.13)}
+.card-title{font-size:0.93rem;font-weight:700;color:var(--neutral-700);margin-bottom:13px;display:flex;align-items:center;gap:6px}
+.divider{height:1px;background:var(--neutral-100);margin:11px 0}
+.flex-b{display:flex;align-items:center;justify-content:space-between}
+.text-muted{color:var(--neutral-400);font-size:0.8rem}
+.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}
+.badge{padding:3px 8px;border-radius:20px;font-size:0.7rem;font-weight:600}
+.bg{background:var(--green-light);color:#15803D}
+.br{background:var(--red-light);color:#B91C1C}
+.ba{background:var(--amber-light);color:#B45309}
+.bn{background:var(--neutral-200);color:var(--neutral-600)}
+
+/* RING */
+.ring-wrap{position:relative;width:80px;height:80px;flex-shrink:0}
+.ring-wrap svg{transform:rotate(-90deg)}
+.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-pct{font-size:1.1rem;font-weight:800;color:var(--neutral-800)}
+.ring-sub{font-size:0.58rem;color:var(--neutral-400)}
+
+/* SHOLAT QUICK */
+.sq-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.sq{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 3px;border-radius:var(--r-sm);background:var(--neutral-100);cursor:pointer;border:1.5px solid transparent;transition:all 0.18s}
+.sq.du{background:var(--una-50);border-color:var(--una-200)}
+.sq.dv{background:var(--viki-50);border-color:var(--viki-200)}
+.sq.lk{opacity:0.38;cursor:not-allowed}
+.sq.ex{opacity:0.5;cursor:not-allowed}
+.sq-ck{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--neutral-300);display:flex;align-items:center;justify-content:center;font-size:0.72rem;background:#fff}
+.sq-ck.du{background:var(--una-400);border-color:var(--una-400);color:#fff}
+.sq-ck.dv{background:var(--viki-400);border-color:var(--viki-400);color:#fff}
+.sq-nm{font-size:0.62rem;font-weight:600;color:var(--neutral-600)}
+.sq-tm{font-size:0.56rem;color:var(--neutral-400)}
+
+/* ACTION GRID */
+.act-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.act-btn{border-radius:var(--r-md);padding:18px 14px;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:3px;transition:all 0.15s;text-align:left}
+.act-btn:active{transform:scale(0.96);opacity:0.9}
+.act-icon{font-size:1.55rem;margin-bottom:3px}
+.act-label{font-size:0.83rem;font-weight:800;color:#2D2040}
+.act-sub{font-size:0.7rem;color:rgba(45,32,64,0.65)}
+
+/* REMIND */
+.remind-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:var(--r-sm);margin-bottom:8px;border-left:3px solid}
+.ri-una{background:#FFF0F8;border-color:#FFB0DC}
+.ri-viki{background:#F0FAFF;border-color:#80D0FF}
+.ri-text{font-size:0.8rem;color:var(--neutral-600);flex:1;line-height:1.45}
+
+/* CHALLENGE TABS */
+.ctabs{display:flex;gap:8px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.ctabs::-webkit-scrollbar{display:none}
+.ctab{padding:8px 16px;border-radius:var(--r-xl);border:1.5px solid var(--neutral-200);background:#fff;font-size:0.82rem;font-weight:600;color:var(--neutral-400);cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all 0.15s}
+.ctab.au{background:var(--una-500);border-color:var(--una-500);color:#fff}
+.ctab.av{background:var(--viki-500);border-color:var(--viki-500);color:#fff}
+
+/* SKINCARE */
+.sk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.sk-sr{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--neutral-100)}
+.sk-sr:last-child{border-bottom:none}
+
+/* IBADAH */
+.ib-item{background:var(--neutral-50);border-radius:var(--r-sm);padding:12px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;border:1.5px solid transparent;transition:all 0.18s}
+.ib-item.du{background:var(--una-50);border-color:var(--una-100)}
+.ib-item.dv{background:var(--viki-50);border-color:var(--viki-100)}
+.ib-item.lk{opacity:0.38}
+.ib-item.ex{opacity:0.52}
+.ib-lbl{font-size:0.88rem;font-weight:600;color:var(--neutral-800)}
+.ib-meta{font-size:0.7rem;color:var(--neutral-400);margin-top:2px}
+.ck{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--neutral-300);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;flex-shrink:0;transition:all 0.18s}
+.ck.du{background:var(--una-400);border-color:var(--una-400);color:#fff}
+.ck.dv{background:var(--viki-400);border-color:var(--viki-400);color:#fff}
+.ck:disabled{cursor:not-allowed;opacity:0.45}
+.bonus-tag{font-size:0.66rem;background:var(--amber-light);color:var(--amber);padding:2px 6px;border-radius:8px;font-weight:600;margin-left:5px}
+
+/* LEADERBOARD */
+.lb-card{border-radius:var(--r-md);padding:15px;margin-bottom:11px;display:flex;align-items:center;gap:13px;background:#fff;box-shadow:var(--shadow-sm)}
+.lb-rank{font-size:1.5rem;width:40px;text-align:center;flex-shrink:0}
+.lb-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.lb-av-u{background:var(--una-100)}
+.lb-av-v{background:var(--viki-100)}
+.lb-info{flex:1;min-width:0}
+.lb-name{font-size:0.93rem;font-weight:700;color:var(--neutral-800)}
+.lb-bar-w{height:4px;background:var(--neutral-200);border-radius:2px;margin-top:5px;overflow:hidden}
+.lb-bar{height:100%;border-radius:2px;transition:width 0.5s}
+.lb-bar-u{background:var(--una-400)}
+.lb-bar-v{background:var(--viki-400)}
+.lb-score{font-size:1.45rem;font-weight:800;flex-shrink:0}
+.lb-score-u{color:var(--una-500)}
+.lb-score-v{color:var(--viki-500)}
+.lb-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lb-cell{border-radius:var(--r-sm);padding:10px;text-align:center}
+.lb-cell-n{font-size:1.05rem;font-weight:800;color:var(--neutral-800)}
+.lb-cell-l{font-size:0.66rem;color:var(--neutral-400);margin-top:2px}
+
+/* SAVINGS */
+.saldo-hero{text-align:center;padding:18px 0 14px}
+.saldo-lbl{font-size:0.8rem;color:var(--neutral-400);margin-bottom:4px}
+.saldo-num{font-size:2.3rem;font-weight:800;color:var(--neutral-800);letter-spacing:-1px}
+.tx-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:13px}
+.tx-btn{padding:9px 5px;border-radius:var(--r-sm);border:1.5px solid var(--neutral-200);background:#fff;font-size:0.76rem;font-weight:700;color:var(--neutral-500);cursor:pointer;text-align:center;transition:all 0.15s}
+.tx-btn.sm{background:#D0FFF0;border-color:#50D0A8;color:#107850}
+.tx-btn.sk{background:#FFE0EC;border-color:#FF88C0;color:#C03060}
+.tx-btn.sr{background:#D8F0FF;border-color:#60C8FF;color:#1870B0}
+.inp-g{margin-bottom:11px}
+.inp-lbl{font-size:0.76rem;color:var(--neutral-500);margin-bottom:4px;display:block;font-weight:600}
+.inp{width:100%;padding:10px 12px;border-radius:var(--r-sm);border:1.5px solid var(--neutral-200);font-size:0.88rem;outline:none;background:#fff;color:var(--neutral-800);transition:border 0.15s}
+.inp:focus{border-color:#FF88C8}
+.save-btn{width:100%;padding:13px;border-radius:var(--r-sm);border:none;font-size:0.9rem;font-weight:700;cursor:pointer;color:#fff;margin-top:3px;transition:all 0.15s}
+.save-btn:active{opacity:0.85}
+.hist-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--neutral-100)}
+.hist-item:last-child{border-bottom:none}
+.hist-ico{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0}
+.hist-inf{flex:1;min-width:0}
+.hist-nm{font-size:0.83rem;font-weight:600;color:var(--neutral-800);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hist-mt{font-size:0.7rem;color:var(--neutral-400);margin-top:1px}
+.hist-am{font-size:0.88rem;font-weight:700;flex-shrink:0}
+.bill-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--neutral-100)}
+.bill-row:last-child{border-bottom:none}
+
+/* ROUTINE FULLSCREEN */
+#routine-screen{position:fixed;inset:0;z-index:500;display:flex;flex-direction:column;background:#fff;transform:translateY(100%);transition:transform 0.32s cubic-bezier(0.32,0,0.67,0)}
+#routine-screen.open{transform:translateY(0)}
+.rt-top{padding:15px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--neutral-200)}
+.rt-close{width:33px;height:33px;border-radius:50%;background:var(--neutral-100);border:none;cursor:pointer;font-size:0.95rem;color:var(--neutral-600);display:flex;align-items:center;justify-content:center}
+.rt-h{font-size:0.98rem;font-weight:700;color:var(--neutral-800);text-align:center;flex:1}
+.rt-body{flex:1;overflow-y:auto;padding:16px 20px 110px}
+.step-card{border-radius:var(--r-md);padding:15px;margin-bottom:11px;border:2px solid var(--neutral-200);background:#fff;transition:all 0.25s}
+.step-card.au{border-color:var(--una-300);background:var(--una-50)}
+.step-card.av{border-color:var(--viki-300);background:var(--viki-50)}
+.step-card.done{border-color:var(--green);background:var(--green-light);opacity:0.82}
+.step-card.wait{opacity:0.4}
+.step-num{font-size:0.7rem;font-weight:700;color:var(--neutral-400);margin-bottom:3px}
+.step-name{font-size:0.98rem;font-weight:700;color:var(--neutral-800)}
+.step-brand{font-size:0.76rem;color:var(--neutral-400);margin-top:2px}
+.step-desc{font-size:0.8rem;color:var(--neutral-500);margin-top:7px;line-height:1.55;padding-top:7px;border-top:1px solid rgba(0,0,0,0.06)}
+.step-go{width:100%;margin-top:11px;padding:11px;border-radius:var(--r-sm);border:none;font-size:0.88rem;font-weight:700;cursor:pointer;color:#fff;transition:all 0.15s}
+.step-go:active{opacity:0.85}
+.step-go-u{background:var(--una-500)}
+.step-go-v{background:var(--viki-500)}
+.step-done-lbl{width:100%;margin-top:9px;padding:9px;border-radius:var(--r-sm);background:var(--green-light);color:#15803D;font-size:0.82rem;font-weight:700;text-align:center}
+.rt-done-bar{padding:12px 20px 20px;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--neutral-200)}
+
+/* FULL TIMER */
+#ft{position:fixed;inset:0;z-index:600;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;text-align:center;transform:translateY(100%);transition:transform 0.3s}
+#ft.open{transform:translateY(0)}
+.ft-una{background:linear-gradient(160deg,#FFF5FD,#FFE8F6,#FFD0EC)}
+.ft-viki{background:linear-gradient(160deg,#F0FAFF,#D8F2FF,#B0E4FF)}
+.ft-stepnum{font-size:0.82rem;font-weight:600;margin-bottom:4px}
+.ft-una .ft-stepnum{color:var(--una-400)}
+.ft-viki .ft-stepnum{color:var(--viki-400)}
+.ft-stepname{font-size:1.7rem;font-weight:800;margin-bottom:2px}
+.ft-una .ft-stepname{color:var(--una-600)}
+.ft-viki .ft-stepname{color:var(--viki-600)}
+.ft-stepbrand{font-size:0.88rem;margin-bottom:24px}
+.ft-una .ft-stepbrand{color:var(--una-400)}
+.ft-viki .ft-stepbrand{color:var(--viki-400)}
+.ft-ring-wrap{position:relative;width:190px;height:190px;margin:0 auto 22px}
+.ft-ring-wrap svg{transform:rotate(-90deg)}
+.ft-ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ft-time{font-size:2.9rem;font-weight:800;letter-spacing:-1px}
+.ft-una .ft-time{color:var(--una-600)}
+.ft-viki .ft-time{color:var(--viki-600)}
+.ft-time-lbl{font-size:0.72rem;font-weight:500;margin-top:2px}
+.ft-una .ft-time-lbl{color:var(--una-400)}
+.ft-viki .ft-time-lbl{color:var(--viki-400)}
+.ft-desc{font-size:0.86rem;line-height:1.62;margin-bottom:26px;max-width:300px}
+.ft-una .ft-desc{color:var(--una-600)}
+.ft-viki .ft-desc{color:var(--viki-600)}
+.ft-btn{padding:14px 40px;border-radius:var(--r-xl);border:none;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.15s;box-shadow:var(--shadow-md)}
+.ft-una .ft-btn{background:var(--una-500);color:#fff}
+.ft-viki .ft-btn{background:var(--viki-500);color:#fff}
+.ft-btn:active{opacity:0.85;transform:scale(0.97)}
+.ft-note{font-size:0.75rem;margin-top:13px;opacity:0.6}
+.ft-una .ft-note{color:var(--una-600)}
+.ft-viki .ft-note{color:var(--viki-600)}
+
+/* VOUCHER TICKET */
+.voucher-locked{background:linear-gradient(135deg,#EAD8FF,#F8EEFF);border-radius:var(--r-md);margin-bottom:12px;overflow:hidden;display:flex;align-items:center;gap:14px;padding:18px}
+.vl-icon{font-size:2.2rem;filter:blur(5px);flex-shrink:0}
+.vl-info{flex:1}
+.vl-week{font-size:0.7rem;color:#7B5A9A;margin-bottom:3px}
+.vl-name{font-size:0.88rem;font-weight:700;color:#9B7ABB;opacity:0.7}
+.vl-pct{font-size:0.72rem;color:#7B5A9A;opacity:0.75;margin-top:3px}
+
+/* TICKET DESIGN */
+.ticket{border-radius:var(--r-md);margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow-md);position:relative;cursor:pointer;transition:transform 0.18s}
+.ticket:active{transform:scale(0.98)}
+.ticket-top{padding:20px 20px 16px}
+.ticket-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
+.ticket-week{font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5A4070;opacity:0.7}
+.ticket-badge{font-size:0.7rem;font-weight:700;padding:3px 9px;border-radius:20px;background:rgba(255,255,255,0.7);color:#5A4070}
+.ticket-icon{font-size:2.8rem;margin-bottom:8px}
+.ticket-name{font-size:1.1rem;font-weight:800;color:#2E1A48;line-height:1.25;margin-bottom:4px}
+.ticket-tagline{font-size:0.8rem;color:#5A4070;line-height:1.5;opacity:0.85}
+.ticket-divider{display:flex;align-items:center;margin:0 20px}
+.ticket-divider-line{flex:1;height:1px;background:rgba(90,64,112,0.12);border-top:1px dashed rgba(90,64,112,0.2)}
+.ticket-divider-circle-l{width:20px;height:20px;border-radius:50%;background:var(--neutral-100);margin-left:-10px;flex-shrink:0}
+.ticket-divider-circle-r{width:20px;height:20px;border-radius:50%;background:var(--neutral-100);margin-right:-10px;flex-shrink:0}
+.ticket-bottom{padding:12px 20px 16px;display:flex;align-items:center;justify-content:space-between}
+.ticket-detail{font-size:0.73rem;color:#5A4070;opacity:0.8;line-height:1.5;flex:1;margin-right:12px}
+.ticket-claim-btn{background:rgba(255,255,255,0.9);border:none;border-radius:var(--r-xl);padding:9px 18px;font-size:0.8rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all 0.15s;box-shadow:0 2px 8px rgba(100,60,150,0.15)}
+.ticket-claim-btn:active{transform:scale(0.95);opacity:0.85}
+.ticket-claimed{font-size:0.8rem;font-weight:700;color:#5A4070;display:flex;align-items:center;gap:5px}
+.ticket-locked-msg{font-size:0.76rem;color:#5A4070;opacity:0.65;display:flex;align-items:center;gap:5px}
+
+/* VOUCHER COLORS */
+.vc-1{background:linear-gradient(135deg,#DDD0FF,#EEE4FF)}
+.vc-2{background:linear-gradient(135deg,#FFD8B8,#FFE8CC)}
+.vc-3{background:linear-gradient(135deg,#C0F0E8,#D8FFF8)}
+.vc-4{background:linear-gradient(135deg,#FFB8D4,#FFCCE4)}
+.vc-5{background:linear-gradient(135deg,#B0E4FF,#C8F0FF)}
+.vc-6{background:linear-gradient(135deg,#E8C0FF,#F4D8FF)}
+.vc-7{background:linear-gradient(135deg,#FFF0A0,#FFFAC0)}
+.vc-8{background:linear-gradient(135deg,#A8F0E8,#C8FFF8)}
+.vc-special{background:linear-gradient(135deg,#FFE870,#FFF4A0,#FFE870)}
+
+/* MODAL */
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,0.42);z-index:800;display:none;align-items:flex-end}
+.modal-ov.open{display:flex}
+.modal-box{background:#fff;border-radius:var(--r-lg) var(--r-lg) 0 0;width:100%;max-height:90vh;overflow-y:auto;padding:22px;padding-bottom:30px}
+.modal-handle{width:34px;height:4px;background:var(--neutral-200);border-radius:2px;margin:0 auto 16px}
+.modal-close{float:right;background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--neutral-400)}
+.modal-title{font-size:1.02rem;font-weight:700;color:var(--neutral-800);margin-bottom:14px;line-height:1.3}
+
+/* NOTIF */
+.notif{position:fixed;top:0;left:0;right:0;padding:13px 18px;z-index:900;transform:translateY(-100%);transition:transform 0.32s;display:flex;align-items:center;gap:10px}
+.notif.show{transform:translateY(0)}
+.notif-text{flex:1;font-size:0.86rem;font-weight:600;color:#fff}
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash" class="screen active">
+  <div class="splash-logo">💕</div>
+  <div class="splash-title">Una & Viki</div>
+  <div class="splash-sub">Challenge 30 Hari Bareng ✨</div>
+  <div class="profile-row">
+    <div class="p-card p-card-una" onclick="selectProfile('una')">
+      <div class="p-emoji">🦋</div>
+      <div class="p-name">Una</div>
+      <div class="p-sub">Masuk sebagai Una</div>
+    </div>
+    <div class="p-card p-card-viki" onclick="selectProfile('viki')">
+      <div class="p-emoji">🐊</div>
+      <div class="p-name">Viki</div>
+      <div class="p-sub">Masuk sebagai Viki</div>
+    </div>
+  </div>
+</div>
+
+<!-- START -->
+<div id="start-screen" class="screen">
+  <div class="ss-emoji" id="ss-e">🦋</div>
+  <div class="ss-title" id="ss-t">Halo Una!</div>
+  <div class="ss-sub">Challenge 30 hari belum dimulai.<br>Tekan tombol di bawah untuk mulai,<br>hari pertama dihitung dari sekarang.</div>
+  <button class="ss-btn" id="ss-b" onclick="startChallenge()">Mulai Challenge! 🚀</button>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" class="screen">
+  <div class="header" id="hdr">
+    <div class="hdr-left">
+      <div class="hdr-av" id="hdr-av">🦋</div>
+      <div>
+        <div class="hdr-name" id="hdr-nm">Una</div>
+        <div class="hdr-day" id="hdr-dy">Hari 1 dari 30</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <button class="icon-btn" id="peek-btn" onclick="peekViki()">👀</button>
+      <button class="icon-btn" onclick="shareLocation()">📍</button>
+      <button class="icon-btn" onclick="showSettingsModal()">⚙️</button>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-btn" id="nb-home" onclick="showTab('home')"><span class="nav-icon">🏠</span>Home</button>
+    <button class="nav-btn" id="nb-skin" onclick="showTab('skin')"><span class="nav-icon">✨</span>Skincare</button>
+    <button class="nav-btn" id="nb-ib" onclick="showTab('ib')"><span class="nav-icon">🕌</span>Ibadah</button>
+    <button class="nav-btn" id="nb-sav" onclick="showTab('sav')"><span class="nav-icon">💰</span>Tabungan</button>
+    <button class="nav-btn" id="nb-vou" onclick="showTab('vou')"><span class="nav-icon">🎫</span>Voucher</button>
+  </div>
+
+  <!-- HOME -->
+  <div id="tab-home" class="content hidden">
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="ring-wrap">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#E4E4E7" stroke-width="7"/>
+            <circle id="home-ring" cx="40" cy="40" r="32" fill="none" stroke="#FF88C8" stroke-width="7" stroke-linecap="round" stroke-dasharray="201" stroke-dashoffset="201" style="transition:stroke-dashoffset 0.5s"/>
+          </svg>
+          <div class="ring-center">
+            <div class="ring-pct" id="h-pct">0%</div>
+            <div class="ring-sub" id="h-day">Hari 1</div>
+          </div>
+        </div>
+        <div style="flex:1">
+          <div class="text-muted">Progress Hari Ini</div>
+          <div style="font-size:1.55rem;font-weight:800;color:var(--neutral-800);line-height:1.2" id="h-score">0 poin</div>
+          <div style="font-size:0.78rem;color:var(--neutral-500);margin-top:3px" id="h-streak">🔥 0 hari streak</div>
+          <div style="font-size:0.74rem;color:var(--neutral-400);margin-top:3px" id="h-done">0/0 selesai</div>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="partner-card" style="display:none">
+      <div class="card-title" id="partner-title">📊 Progress Pasangan</div>
+      <div id="partner-body"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">🕌 Sholat Hari Ini</div>
+      <div class="sq-grid" id="sq-grid"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">⏰ Pengingat</div>
+      <div id="remind-list"></div>
+    </div>
+    <div style="font-size:0.88rem;font-weight:700;color:var(--neutral-600);margin-bottom:10px">⚡ Mulai Sekarang</div>
+    <div class="act-grid" id="act-grid"></div>
+  </div>
+
+  <!-- SKINCARE -->
+  <div id="tab-skin" class="content hidden">
+    <div class="card">
+      <div class="card-title">✨ Pilih Rutinitas</div>
+      <div class="sk-grid" id="sk-btns"></div>
+      <div id="sk-status"></div>
+    </div>
+  </div>
+
+  <!-- IBADAH -->
+  <div id="tab-ib" class="content hidden">
+    <div class="card">
+      <div class="card-title">🕌 Sholat 5 Waktu</div>
+      <div id="ib-list"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">⭐ Bonus Opsional</div>
+      <div id="bonus-list"></div>
+    </div>
+  </div>
+
+  <!-- LEADERBOARD embedded in home via modal, separate tab -->
+  <div id="tab-sav" class="content hidden">
+    <div class="card">
+      <div class="saldo-hero">
+        <div class="saldo-lbl">💰 Saldo Tabungan Bersama</div>
+        <div class="saldo-num" id="saldo-num">Rp 649.451</div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-title" style="margin-bottom:9px">📋 Reimburse Bulan Ini</div>
+      <div id="bill-list"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">➕ Input Transaksi</div>
+      <div class="tx-row">
+        <div class="tx-btn" id="txb-m" onclick="setTx('m')">💚 Pemasukan</div>
+        <div class="tx-btn" id="txb-k" onclick="setTx('k')">❤️ Pengeluaran</div>
+        <div class="tx-btn" id="txb-r" onclick="setTx('r')">💙 Reimburse</div>
+      </div>
+      <div class="inp-g"><label class="inp-lbl">Jumlah (Rp)</label><input class="inp" id="tx-am" type="number" placeholder="contoh: 50000" inputmode="numeric"/></div>
+      <div class="inp-g"><label class="inp-lbl">Keterangan</label><input class="inp" id="tx-de" type="text" placeholder="contoh: Nonton bareng"/></div>
+      <div class="inp-g hidden" id="rw-wrap"><label class="inp-lbl">Reimburse dari siapa?</label>
+        <select class="inp" id="rw-who"><option value="una">Una 🦋</option><option value="viki">Viki 🐊</option></select>
+      </div>
+      <button class="save-btn" id="tx-save" onclick="addTx()">Simpan</button>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 Riwayat Transaksi</div>
+      <div id="tx-hist"></div>
+    </div>
+  </div>
+
+  <!-- VOUCHER -->
+  <div id="tab-vou" class="content hidden">
+    <div class="card" style="background:linear-gradient(135deg,#EAD8FF,#F8EEFF)">
+      <div style="font-size:0.8rem;color:#7B5A9A;margin-bottom:4px">Progress ≥80% per minggu = voucher terbuka 🔓</div>
+      <div style="font-size:0.93rem;font-weight:700;color:#2E1A48">Date seru menanti kalian! 🎉</div>
+      <div style="font-size:0.76rem;color:#7B5A9A;margin-top:3px">Progress minggu ini: <span id="wpct-lbl">0%</span></div>
+    </div>
+    <div id="vou-list"></div>
+  </div>
+</div>
+
+<!-- ROUTINE FULLSCREEN -->
+<div id="routine-screen">
+  <div class="rt-top" id="rt-top">
+    <button class="rt-close" onclick="closeRoutine()">✕</button>
+    <div class="rt-h" id="rt-h">Rutinitas</div>
+    <div style="width:33px"></div>
+  </div>
+  <div class="rt-body" id="rt-body"></div>
+  <div class="rt-done-bar">
+    <button class="save-btn hidden" id="rt-done-btn" onclick="closeRoutine()">✅ Rutinitas Selesai!</button>
+  </div>
+</div>
+
+<!-- FULL TIMER -->
+<div id="ft">
+  <div class="ft-stepnum" id="ft-sn">Step 1 dari 4</div>
+  <div class="ft-stepname" id="ft-nm">Cuci Muka</div>
+  <div class="ft-stepbrand" id="ft-br"></div>
+  <div class="ft-ring-wrap">
+    <svg width="190" height="190" viewBox="0 0 190 190">
+      <circle cx="95" cy="95" r="82" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="10"/>
+      <circle id="ft-rc" cx="95" cy="95" r="82" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="515" stroke-dashoffset="0" style="transition:stroke-dashoffset 1s linear"/>
+    </svg>
+    <div class="ft-ring-center">
+      <div class="ft-time" id="ft-tm">1:00</div>
+      <div class="ft-time-lbl">tersisa</div>
+    </div>
+  </div>
+  <div class="ft-desc" id="ft-dc">Deskripsi step</div>
+  <button class="ft-btn" id="ft-btn" onclick="ftToggle()">▶ Mulai</button>
+  <div class="ft-note">Timer otomatis centang step ini ✨</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-ov" id="modal-ov" onclick="closeModalOut(event)">
+  <div class="modal-box">
+    <div class="modal-handle"></div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title" id="modal-title"></div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-ov" id="settings-ov" onclick="closeSettingsOut(event)" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:200;align-items:flex-end;justify-content:center">
+  <div style="background:#fff;border-radius:22px 22px 0 0;padding:24px 20px 36px;width:100%;max-width:480px">
+    <div style="width:36px;height:4px;background:#E4E4E7;border-radius:2px;margin:0 auto 20px"></div>
+    <div style="font-size:1.1rem;font-weight:800;color:#27272A;margin-bottom:20px;text-align:center">⚙️ Pengaturan</div>
+    
+    <button onclick="doLogout()" style="width:100%;padding:14px;border-radius:14px;border:2px solid #E4E4E7;background:#FAFAFA;font-size:0.95rem;font-weight:700;color:#52525B;cursor:pointer;margin-bottom:12px">
+      🔄 Ganti Profil (Logout)
+    </button>
+    
+    <button onclick="confirmReset()" style="width:100%;padding:14px;border-radius:14px;border:2px solid #FFD0EC;background:#FFF8FD;font-size:0.95rem;font-weight:700;color:#C84090;cursor:pointer;margin-bottom:12px">
+      🗑️ Reset Progress (Mulai dari Awal)
+    </button>
+
+    <button onclick="closeSettingsModal()" style="width:100%;padding:14px;border-radius:14px;border:none;background:#F4F4F5;font-size:0.95rem;font-weight:600;color:#71717A;cursor:pointer">
+      Batal
+    </button>
+  </div>
+</div>
+
+<!-- CONFIRM RESET MODAL -->
+<div class="modal-ov" id="confirm-reset-ov" onclick="" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:300;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:20px;padding:28px 22px;width:88%;max-width:340px;text-align:center">
+    <div style="font-size:2.4rem;margin-bottom:12px">⚠️</div>
+    <div style="font-size:1.05rem;font-weight:800;color:#27272A;margin-bottom:8px">Reset semua progress?</div>
+    <div style="font-size:0.85rem;color:#71717A;margin-bottom:24px;line-height:1.6">Data challenge, skincare, ibadah, dan tabungan akan terhapus permanen dari kedua HP.</div>
+    <div style="display:flex;gap:10px">
+      <button onclick="closeConfirmReset()" style="flex:1;padding:13px;border-radius:12px;border:2px solid #E4E4E7;background:#fff;font-size:0.9rem;font-weight:700;color:#52525B;cursor:pointer">Batal</button>
+      <button onclick="doReset()" style="flex:1;padding:13px;border-radius:12px;border:none;background:#F060B0;font-size:0.9rem;font-weight:700;color:#fff;cursor:pointer">Reset!</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOTIF -->
+<div class="notif" id="notif">
+  <span id="notif-ic" style="font-size:1.15rem">✅</span>
+  <span class="notif-text" id="notif-tx">Berhasil!</span>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBoDRS2CK-_VVNfl39RP-6w1J1qkI1HcX4",
+  authDomain: "naa-s-fe8b9.firebaseapp.com",
+  databaseURL: "https://naa-s-fe8b9-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "naa-s-fe8b9",
+  storageBucket: "naa-s-fe8b9.firebasestorage.app",
+  messagingSenderId: "747248026631",
+  appId: "1:747248026631:web:8f814d7f6c2499600456a2"
+};
+firebase.initializeApp(firebaseConfig);
+var db = firebase.database();
+</script>
+
+<script>
+var profile=null,peekLeft=5,curTab='home',curMode=null,txType='m';
+var ftIdx=0,ftSteps=[],ftSec=0,ftTotal=0,ftOn=false,ftIv=null,ntIv=null;
+
+var D={
+  challengeStarted:false,challengeStartDate:null,
+  una:{skincare:{pagi:{},malam:{},body:{},mask:{}},ibadah:{}},
+  viki:{skincare:{pagi:{},malam:{},body:{},mask:{}},ibadah:{}},
+  savings:{balance:649451,history:[],billing:{una:{reimburse:0},viki:{reimburse:0}}},
+  vouchers:{una:{},viki:{}},
+  voucherAssign:null,
+  peekLeft:5
+};
+
+// 8 voucher pool
+var ALL_VOUCHERS=[
+  {id:'v1',icon:'🌿',name:'Piknik Kebun Raya Bogor',detail:'Bawa tikar & beli jajanan di pintu masuk: cireng, batagor, es kelapa muda. Jalan santai keliling kebun, foto di greenhouse. Makan siang di RM Ramayana depan kebun raya.',color:'vc-1'},
+  {id:'v2',icon:'🍜',name:'Food Hunting Pecenongan',detail:'Makan kerak telor, soto betawi Pak H. Ma\'ruf, es krim Ragusa legendaris. Jalan-jalan di Kota Tua, tutup malam dengan mie ayam jamur di Mangga Dua.',color:'vc-2'},
+  {id:'v3',icon:'🏔️',name:'Day Trip Puncak–Cibodas',detail:'Sarapan nasi uduk di jalan Puncak, jalan di Taman Wisata Alam Cibodas, foto di air terjun Cibeureum. Sore makan jagung bakar + sate kelinci pinggir jalan Puncak.',color:'vc-3'},
+  {id:'v4',icon:'🎡',name:'Dufan + Seafood Ancol',detail:'Seharian main wahana Dufan. Sore duduk di pantai Ancol, makan malam seafood segar di dermaga dengan view laut malam yang indah.',color:'vc-4'},
+  {id:'v5',icon:'🛶',name:'Situ Babakan Betawi Vibes',detail:'Keliling danau naik perahu, jajan kerak telor, bir pletok, gado-gado, dan ondeh-ondeh di Perkampungan Budaya Betawi Setu Babakan Jakarta Selatan.',color:'vc-5'},
+  {id:'v6',icon:'🎳',name:'Timezone + Shabu-Shabu',detail:'Seharian main games di Timezone: tembak-tembakan, dance machine, basketball arcade. Tukar tiket hadiah, lanjut makan shabu-shabu all you can eat di mal.',color:'vc-6'},
+  {id:'v7',icon:'🍱',name:'Kuliner Legendaris Jaksel',detail:'Makan siang soto betawi H. Mamat di Blok M, jalan-jalan di Taman Langsat, lanjut es doger Pak Kumis, tutup sore ngopi santai di kedai kopi lokal Kemang.',color:'vc-7'},
+  {id:'v8',icon:'🎨',name:'Hutan Bambu + Kuliner Bekasi',detail:'Foto aesthetic di Taman Hutan Kota Bekasi area bambu. Jajan es teler + martabak telur di pasar kuliner Harapan Indah, tutup dengan boba sore hari.',color:'vc-8'}
+];
+var VOUCHER_SPECIAL={id:'special',icon:'🎁',name:'Kado Spesial untuk Orang Terkeren',detail:'Sebagai bentuk apresiasi tulus dan penuh cinta atas kerja keras serta komitmen luar biasa menyelesaikan 30 hari challenge ini. Hadiah spesial telah menantimu! 💕',color:'vc-special'};
+
+var SHOLAT=[
+  {id:'subuh',name:'Subuh',h:4,m:30,eh:6,em:30,poin:20},
+  {id:'dzuhur',name:'Dzuhur',h:12,m:0,eh:15,em:0,poin:20},
+  {id:'ashar',name:'Ashar',h:15,m:0,eh:18,em:0,poin:20},
+  {id:'maghrib',name:'Maghrib',h:18,m:0,eh:19,em:30,poin:20},
+  {id:'isya',name:'Isya',h:19,m:30,eh:23,em:59,poin:20}
+];
+var BONUS=[
+  {id:'ngaji',name:'Ngaji',poin:15,sub:'Opsional — bonus poin kalau ngaji hari ini'},
+  {id:'puasa',name:'Puasa Senin/Kamis',poin:25,sub:'Opsional — hanya berlaku Senin & Kamis',sk:true}
+];
+
+var SK={
+  una:{
+    pagi:[
+      {id:'up1',name:'Cuci Muka',brand:'',t:60,desc:'Basahin muka dulu ya, terus sabunnya diusap pelan-pelan ke seluruh muka. Bilas sampai bersih dan nggak licin!'},
+      {id:'up2',name:'Toner',brand:'',t:45,desc:'Tuang toner ke kapas atau telapak tangan, tepuk-tepuk pelan ke muka. Jangan digosok ya biar kulitnya nggak iritasi!'},
+      {id:'up3',name:'Moisturizer',brand:'',t:45,desc:'Ambil sedikit krim, ratain ke seluruh muka dengan gerakan ke atas. Biar muka tetap lembab sepanjang hari!'},
+      {id:'up4',name:'Sunscreen',brand:'',t:30,desc:'WAJIB banget ini! Pakai 2 jari sunscreen, ratain ke muka dan leher. Tunggu 3-5 menit sebelum keluar rumah ya!'}
+    ],
+    malam:[
+      {id:'um1',name:'Micellar Water',brand:'',t:60,desc:'Tuang ke kapas, usap pelan ke seluruh muka. Bersihin kotoran dan sisa sunscreen seharian!'},
+      {id:'um2',name:'Cuci Muka',brand:'',t:60,desc:'Setelah micellar water, cuci muka lagi. Double cleansing — biar muka beneran bersih maksimal!'},
+      {id:'um3',name:'Toner',brand:'',t:45,desc:'Tepuk-tepuk toner ke muka biar kulit siap menyerap skincare selanjutnya dengan optimal!'},
+      {id:'um4',name:'Serum',brand:'Serum',t:60,desc:'Teteskan serum ke telapak tangan, tepuk-tepuk lembut ke seluruh muka. Tunggu 1-2 menit meresap!'},
+      {id:'um5',name:'Exflo',brand:'Exflo',t:45,desc:'Pakai tipis-tipis ke muka, hindari area mata. Bantu regenerasi kulit dan bersihkan pori!'},
+      {id:'um6',name:'Moisturizer',brand:'',t:45,desc:'Langkah terakhir! Ratain ke seluruh muka untuk mengunci semua skincare. Tidur dengan muka lembab!'}
+    ],
+    body:[
+      {id:'ub1',name:'Exfoliate Toner',brand:'Autumn Glycolic Acid',t:60,desc:'Tuang ke kapas, usap ke seluruh badan terutama siku dan lutut. Bikin kulit cerah dan halus!'},
+      {id:'ub2',name:'Serum Badan',brand:'Perfect White',t:90,desc:'Ratain ke seluruh badan sambil dipijat. Tunggu 1-2 menit meresap sebelum pakai lotion ya!'},
+      {id:'ub3',name:'Lotion',brand:'Nivea',t:60,desc:'Pakai saat kulit masih agak lembab biar cepat menyerap. Ratain ke seluruh badan!'}
+    ],
+    mask:[
+      {id:'umk1',name:'Sheet Mask',brand:'',t:1800,desc:'Tempel sheet mask ke muka, tekan biar nempel semua. Santai 30 menit sambil rebahan! Setelahnya jangan dicuci — tepuk-tepuk essence-nya biar nyerap!'}
+    ]
+  },
+  viki:{
+    pagi:[
+      {id:'vp1',name:'Micellar Water',brand:'Garnier',t:60,desc:'Air ajaib bro yang bersihin kotoran! Tuang ke kapas, usap ke muka pelan-pelan. Nggak perlu dibilas!'},
+      {id:'vp2',name:'Cuci Muka',brand:'Hada Labo',t:60,desc:'Basahin muka dulu, berbusain sabunnya di tangan baru ke muka. Gosok pelan ya, bilas sampai nggak licin!'},
+      {id:'vp3',name:'Moisturizer',brand:'Scora',t:45,desc:'Krim biar muka nggak kering. Ambil sedikit, ratain ke seluruh muka dengan ketukan jari!'},
+      {id:'vp4',name:'Sunscreen',brand:'Azarine',t:30,desc:'YANG PALING PENTING BRO! Pelindung dari matahari. Pakai ke muka dan leher setiap hari!'},
+      {id:'vp5',name:'Lotion',brand:'Vaseline',t:45,desc:'Jangan lupa lotion bro! Usap ke tangan dan badan yang kering biar kulit tetap lembab sepanjang hari!'}
+    ],
+    malam:[
+      {id:'vm1',name:'Micellar Water',brand:'Garnier',t:60,desc:'Lap muka pakai kapas yang udah dikasih micellar water. Usap pelan sampai kapasnya nggak kotor lagi!'},
+      {id:'vm2',name:'Cuci Muka',brand:'Hada Labo',t:60,desc:'Setelah micellar water, cuci muka lagi. Double cleansing bro — biar beneran bersih dari semua kotoran!'},
+      {id:'vm3',name:'Serum',brand:'Hanasui',t:60,desc:'Cairan ajaib bikin muka cerah! Teteskan 3-4 tetes, tepuk-tepuk ke muka. Tunggu meresap ya!'},
+      {id:'vm4',name:'Moisturizer',brand:'Scora',t:45,desc:'Ratain ke seluruh muka biar semua skincare terkunci. Hampir selesai!'},
+      {id:'vm5',name:'Lotion',brand:'Vaseline',t:45,desc:'Step terakhir bro! Usap lotion ke seluruh badan biar nggak kering pas tidur. Selamat istirahat!'}
+    ],
+    body:[
+      {id:'vb1',name:'Lotion Badan',brand:'Vaseline',t:60,desc:'Setelah mandi atau sebelum tidur, pakai lotion ke seluruh badan biar kulit nggak kering!'}
+    ],
+    mask:[]
+  }
+};
+
+// ---- STORAGE ----
+async function saveData(){
+  try{
+    D.peekLeft=peekLeft;
+    localStorage.setItem('uv_v3',JSON.stringify(D));
+    if(profile) localStorage.setItem('uv_profile',profile);
+    // Sync progress to Firebase so partner can see on their device
+    if(profile&&D.challengeStarted){
+      var tk=todayKey();
+      var sc=D[profile].skincare;var ib=D[profile].ibadah[tk]||{};
+      var sp=SK[profile].pagi;var sm=SK[profile].malam;
+      var pd=sp.filter(function(s){return sc.pagi[tk]&&sc.pagi[tk][s.id];}).length;
+      var md=sm.filter(function(s){return sc.malam[tk]&&sc.malam[tk][s.id];}).length;
+      var shd=SHOLAT.filter(function(s){return ib[s.id];}).length;
+      var wpct=calcWpct(profile);
+      var streak=calcStreak(profile);
+      var score=calcScore(profile);
+      try{
+        db.ref('partner/'+profile).set({
+          name:profile,date:tk,pagi:pd,pagiTotal:sp.length,
+          malam:md,malamTotal:sm.length,sholat:shd,
+          wpct:wpct,streak:streak,score:score,
+          lastUpdate:new Date().toISOString()
+        });
+      }catch(fe){}
+    }
+  }catch(e){}
+}
+async function loadData(){
+  try{
+    var raw=localStorage.getItem('uv_v3');
+    var r=raw?{value:raw}:null;
+    if(r&&r.value){
+      var s=JSON.parse(r.value);
+      if(s.challengeStarted!==undefined) D.challengeStarted=s.challengeStarted;
+      if(s.challengeStartDate!==undefined) D.challengeStartDate=s.challengeStartDate;
+      if(s.voucherAssign!==undefined) D.voucherAssign=s.voucherAssign;
+      if(s.peekLeft!==undefined) peekLeft=s.peekLeft;
+      if(s.una){
+        if(s.una.skincare) D.una.skincare=s.una.skincare;
+        if(s.una.ibadah) D.una.ibadah=s.una.ibadah;
+      }
+      if(s.viki){
+        if(s.viki.skincare) D.viki.skincare=s.viki.skincare;
+        if(s.viki.ibadah) D.viki.ibadah=s.viki.ibadah;
+      }
+      if(s.savings){
+        D.savings.balance=s.savings.balance;
+        D.savings.history=s.savings.history||[];
+        if(s.savings.billing) D.savings.billing=s.savings.billing;
+      }
+      if(s.vouchers) D.vouchers=s.vouchers;
+    }
+  }catch(e){}
+}
+
+// ---- VOUCHER ASSIGN ----
+function assignVouchers(){
+  if(D.voucherAssign) return;
+  var pool=[0,1,2,3,4,5,6,7];
+  for(var i=pool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=pool[i];pool[i]=pool[j];pool[j]=tmp;}
+  D.voucherAssign={una:[pool[0],pool[1],pool[2],pool[3]],viki:[pool[4],pool[5],pool[6],pool[7]]};
+  saveData();
+}
+
+function getMyVouchers(){
+  assignVouchers();
+  var idxs=D.voucherAssign[profile];
+  return idxs.map(function(i){return ALL_VOUCHERS[i];});
+}
+
+// ---- UTILS ----
+function todayKey(){return new Date().toISOString().split('T')[0];}
+function dayNum(){if(!D.challengeStartDate)return 1;var d=Math.floor((Date.now()-new Date(D.challengeStartDate).getTime())/86400000);return Math.min(Math.max(d+1,1),30);}
+function weekNum(){return Math.ceil(dayNum()/7);}
+function isSK(){var d=new Date().getDay();return d===1||d===4;}
+function isMask(){var d=new Date().getDay();return d===3||d===6;}
+function fmtRp(n){return 'Rp '+Math.abs(Math.round(n)).toLocaleString('id-ID');}
+function fmtT(s){var m=Math.floor(s/60),sec=s%60;return m+':'+(sec<10?'0':'')+sec;}
+function shSt(id){
+  var now=new Date(),sh=null;
+  for(var i=0;i<SHOLAT.length;i++){if(SHOLAT[i].id===id){sh=SHOLAT[i];break;}}
+  if(!sh)return 'locked';
+  var st=new Date();st.setHours(sh.h,sh.m,0,0);
+  var en=new Date();en.setHours(sh.eh,sh.em,0,0);
+  var tk=todayKey();var ib=D[profile].ibadah[tk]||{};
+  if(ib[id])return'done';if(now<st)return'locked';if(now>en)return'expired';return'open';
+}
+
+// ---- INIT ----
+async function init(){
+  await loadData();
+  try{
+    var spVal=localStorage.getItem('uv_profile');
+    if(spVal){profile=spVal;showMainApp();return;}
+  }catch(e){}
+  // fallback: show splash
+}
+
+function selectProfile(p){
+  try{
+    var lk=localStorage.getItem('uv_profile');
+    if(lk&&lk!==p){showNotif('🔒','Akun sudah terkunci di perangkat ini!');return;}
+    profile=p;
+    localStorage.setItem('uv_profile',p);
+  }catch(e){}
+  showMainApp();
+}
+
+function showMainApp(){
+  document.getElementById('splash').classList.remove('active');
+  if(!D.challengeStarted){
+    document.getElementById('start-screen').classList.add('active');
+    document.getElementById('ss-e').textContent=profile==='una'?'🦋':'🐊';
+    document.getElementById('ss-t').textContent=profile==='una'?'Halo Una! 🦋':'Halo Viki! 🐊';
+    document.getElementById('ss-b').style.background=profile==='una'?'var(--una-500)':'var(--viki-500)';
+  } else {launchApp();}
+}
+
+function startChallenge(){
+  D.challengeStarted=true;D.challengeStartDate=new Date().toISOString();
+  assignVouchers();saveData();
+  document.getElementById('start-screen').classList.remove('active');launchApp();
+}
+
+function launchApp(){
+  document.getElementById('app').classList.add('active');
+  applyTheme();renderActGrid();showTab('home');saveData();
+  setInterval(checkSholatAlarm,60000);
+  setInterval(function(){renderReminders();renderSQ();updateHome();renderPartnerProgress();},120000);
+}
+
+function applyTheme(){
+  var h=document.getElementById('hdr');
+  h.className='header '+(profile==='una'?'hdr-una':'hdr-viki');
+  document.getElementById('hdr-av').textContent=profile==='una'?'🦋':'🐊';
+  document.getElementById('hdr-av').className='hdr-av '+(profile==='una'?'hdr-av-una':'hdr-av-viki');
+  document.getElementById('hdr-nm').textContent=profile==='una'?'Una':'Viki';
+  document.getElementById('peek-btn').style.display=profile==='una'?'flex':'none';
+}
+
+function applyNav(){
+  ['home','skin','ib','sav','vou'].forEach(function(t){
+    var b=document.getElementById('nb-'+t);
+    b.classList.remove('a-una','a-viki');
+    if(curTab===t)b.classList.add(profile==='una'?'a-una':'a-viki');
+  });
+}
+
+// ---- TABS ----
+function showTab(t){
+  ['home','skin','ib','sav','vou'].forEach(function(x){document.getElementById('tab-'+x).classList.add('hidden');});
+  document.getElementById('tab-'+t).classList.remove('hidden');
+  curTab=t;applyNav();
+  document.getElementById('hdr-dy').textContent='Hari '+dayNum()+' dari 30';
+  if(t==='home'){updateHome();renderReminders();renderSQ();renderPartnerProgress();}
+  if(t==='skin'){renderSkBtns();updateSkSt();}
+  if(t==='ib')renderIbadah();
+  if(t==='sav')renderSavings();
+  if(t==='vou')renderVouchers();
+}
+
+// ---- SCORE ----
+function calcScore(p){
+  var s=0;var pd=D[p];
+  Object.keys(pd.ibadah).forEach(function(d){
+    var ib=pd.ibadah[d];
+    SHOLAT.forEach(function(sh){if(ib[sh.id])s+=sh.poin;});
+    BONUS.forEach(function(b){if(ib[b.id])s+=b.poin;});
+  });
+  ['pagi','malam','body','mask'].forEach(function(m){
+    var steps=SK[p][m]||[];if(!steps.length)return;
+    Object.keys(pd.skincare[m]).forEach(function(d){
+      var dn=steps.filter(function(st){return pd.skincare[m][d][st.id];}).length;
+      if(dn===steps.length)s+=(m==='mask'?15:25);
+    });
+  });
+  return s;
+}
+
+function calcStreak(p){
+  var st=0;var t=new Date();
+  for(var i=0;i<30;i++){
+    var d=new Date(t);d.setDate(d.getDate()-i);
+    var k=d.toISOString().split('T')[0];
+    var ib=D[p].ibadah[k]||{};
+    if(SHOLAT.filter(function(s){return ib[s.id];}).length>=3)st++;else break;
+  }
+  return st;
+}
+
+function calcWpct(p){
+  var t=new Date();var total=0;var cnt=0;
+  var sp=SK[p].pagi;var sm=SK[p].malam;
+  for(var i=0;i<7;i++){
+    var d=new Date(t);d.setDate(d.getDate()-i);
+    if(D.challengeStartDate&&d<new Date(D.challengeStartDate))break;
+    var k=d.toISOString().split('T')[0];
+    var ib=D[p].ibadah[k]||{};var sc=D[p].skincare;
+    var sh=SHOLAT.filter(function(s){return ib[s.id];}).length/5;
+    var pa=sp.filter(function(s){return sc.pagi[k]&&sc.pagi[k][s.id];}).length/sp.length;
+    var ma=sm.filter(function(s){return sc.malam[k]&&sc.malam[k][s.id];}).length/sm.length;
+    total+=(sh+pa+ma)/3;cnt++;
+  }
+  return cnt>0?Math.round(total/cnt*100):0;
+}
+
+// ---- HOME ----
+function updateHome(){
+  var tk=todayKey();var sc=D[profile].skincare;var ib=D[profile].ibadah[tk]||{};
+  var sp=SK[profile].pagi;var sm=SK[profile].malam;var sb=SK[profile].body;
+  var pd=sp.filter(function(s){return sc.pagi[tk]&&sc.pagi[tk][s.id];}).length;
+  var md=sm.filter(function(s){return sc.malam[tk]&&sc.malam[tk][s.id];}).length;
+  var bd=profile==='una'?sb.filter(function(s){return sc.body[tk]&&sc.body[tk][s.id];}).length:0;
+  var shd=SHOLAT.filter(function(s){return ib[s.id];}).length;
+  var mkd=0;var mkt=0;
+  if(profile==='una'&&isMask()){mkd=SK.una.mask.filter(function(s){return sc.mask[tk]&&sc.mask[tk][s.id];}).length;mkt=SK.una.mask.length;}
+  var done=pd+md+bd+mkd+shd;
+  var total=sp.length+sm.length+(profile==='una'?sb.length:0)+mkt+5;
+  var pct=total>0?Math.round(done/total*100):0;
+  var circ=201;
+  var ring=document.getElementById('home-ring');
+  ring.style.strokeDashoffset=circ-(circ*pct/100);
+  ring.style.stroke=profile==='una'?'var(--una-400)':'var(--viki-400)';
+  document.getElementById('h-pct').textContent=pct+'%';
+  document.getElementById('h-day').textContent='Hari '+dayNum();
+  document.getElementById('h-score').textContent=calcScore(profile)+' poin';
+  document.getElementById('h-streak').textContent='🔥 '+calcStreak(profile)+' hari streak';
+  document.getElementById('h-done').textContent=done+'/'+total+' selesai';
+  renderPartnerProgress();
+}
+
+// ---- PARTNER PROGRESS ----
+async function renderPartnerProgress(){
+  var partner=profile==='una'?'viki':'una';
+  var partnerName=profile==='una'?'Viki':'Una';
+  var myName=profile==='una'?'Una':'Viki';
+  var card=document.getElementById('partner-card');
+  var body=document.getElementById('partner-body');
+  var title=document.getElementById('partner-title');
+  var myColor=profile==='una'?'#FF88C8':'#50BBFF';
+  var partnerColor=profile==='una'?'#50BBFF':'#FF88C8';
+  card.style.display='';
+  var r=null;
+  try{
+    var _snap=await db.ref('partner/'+partner).once('value');
+    var _pval=_snap.val();
+    r=_pval?{value:JSON.stringify(_pval)}:null;
+  }catch(e){}
+  var tk=todayKey();
+  var mySc=D[profile].skincare;
+  var myIb=D[profile].ibadah[tk]||{};
+  var sp=SK[profile].pagi;
+  var sm=SK[profile].malam;
+  var myPd=sp.filter(function(s){return mySc.pagi[tk]&&mySc.pagi[tk][s.id];}).length;
+  var myMd=sm.filter(function(s){return mySc.malam[tk]&&mySc.malam[tk][s.id];}).length;
+  var myShd=SHOLAT.filter(function(s){return myIb[s.id];}).length;
+  var myWpct=calcWpct(profile);
+  var myStreak=calcStreak(profile);
+  var myScore=calcScore(profile);
+  if(r&&r.value){
+    var pd=JSON.parse(r.value);
+    var partnerToday=pd.date===tk;
+    var pPd=partnerToday?pd.pagi:0;
+    var pPt=pd.pagiTotal||4;
+    var pMd=partnerToday?pd.malam:0;
+    var pMt=pd.malamTotal||6;
+    var pShd=partnerToday?pd.sholat:0;
+    var pWpct=pd.wpct||0;
+    var pStreak=pd.streak||0;
+    var pScore=pd.score||0;
+    var winner=myScore>pScore?myName:(pScore>myScore?partnerName:'Seimbang!');
+    title.textContent='Perbandingan Progress';
+    var html='';
+    html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">';
+    html+='<div style="background:'+myColor+'22;border:2px solid '+myColor+';border-radius:14px;padding:12px;text-align:center">';
+    html+='<div style="font-size:0.75rem;font-weight:700;color:'+myColor+';margin-bottom:4px">'+myName+'</div>';
+    html+='<div style="font-size:1.6rem;font-weight:900;color:#2D2040">'+myScore+'</div>';
+    html+='<div style="font-size:0.7rem;color:#5A4070">poin</div>';
+    html+='<div style="font-size:0.72rem;color:#5A4070;margin-top:6px">Minggu ini: '+myWpct+'%</div>';
+    html+='<div style="font-size:0.72rem;color:#5A4070">Streak: '+myStreak+' hari</div>';
+    html+='</div>';
+    html+='<div style="background:'+partnerColor+'22;border:2px solid '+partnerColor+';border-radius:14px;padding:12px;text-align:center">';
+    html+='<div style="font-size:0.75rem;font-weight:700;color:'+partnerColor+';margin-bottom:4px">'+partnerName+'</div>';
+    html+='<div style="font-size:1.6rem;font-weight:900;color:#2D2040">'+pScore+'</div>';
+    html+='<div style="font-size:0.7rem;color:#5A4070">poin</div>';
+    html+='<div style="font-size:0.72rem;color:#5A4070;margin-top:6px">Minggu ini: '+pWpct+'%</div>';
+    html+='<div style="font-size:0.72rem;color:#5A4070">Streak: '+pStreak+' hari</div>';
+    html+='</div>';
+    html+='</div>';
+    html+='<div style="font-size:0.82rem;font-weight:700;color:#5A4070;margin-bottom:8px">Progress Hari Ini</div>';
+    html+='<div style="display:flex;flex-direction:column;gap:6px">';
+    html+=mkBar('Skincare Pagi',myPd,sp.length,pPd,pPt,myColor,partnerColor);
+    html+=mkBar('Skincare Malam',myMd,sm.length,pMd,pMt,myColor,partnerColor);
+    html+=mkBar('Sholat',myShd,5,pShd,5,myColor,partnerColor);
+    html+='</div>';
+    if(myScore!==pScore){html+='<div style="margin-top:12px;padding:8px 12px;background:#FFF0FA;border-radius:10px;font-size:0.8rem;font-weight:700;color:#C04090;text-align:center">Unggul: '+winner+'</div>';}
+    else{html+='<div style="margin-top:12px;padding:8px 12px;background:#F5EEFF;border-radius:10px;font-size:0.8rem;font-weight:700;color:#8040C0;text-align:center">Sama kuat!</div>';}
+    if(pd.lastUpdate){html+='<div style="font-size:0.68rem;color:#9A90A8;text-align:right;margin-top:6px">Update: '+new Date(pd.lastUpdate).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})+'</div>';}
+    body.innerHTML=html;
+  }else{
+    title.textContent='Progress Pasangan';
+    body.innerHTML='<div style="text-align:center;padding:12px;color:#9A90A8;font-size:0.83rem">Pasangan belum mulai hari ini. Progress muncul otomatis setelah mereka aktif.</div>';
+  }
+}
+
+
+function mkBar(label,myDone,myTotal,pDone,pTotal,myColor,pColor){
+  var myPct=myTotal>0?Math.round(myDone/myTotal*100):0;
+  var pPct=pTotal>0?Math.round(pDone/pTotal*100):0;
+  return '<div style="margin-bottom:2px">'+
+    '<div style="display:flex;justify-content:space-between;font-size:0.73rem;color:#5A4070;margin-bottom:3px">'+
+      '<span>'+label+'</span>'+
+      '<span>'+myDone+'/'+myTotal+' vs '+pDone+'/'+pTotal+'</span>'+
+    '</div>'+
+    '<div style="display:flex;gap:3px;height:8px;border-radius:6px;overflow:hidden;background:#F0EEFF">'+
+      '<div style="flex:1;background:#F0EEFF;border-radius:6px;overflow:hidden">'+
+        '<div style="width:'+myPct+'%;height:100%;background:'+myColor+';border-radius:6px;transition:width 0.4s"></div>'+
+      '</div>'+
+      '<div style="flex:1;background:#F0EEFF;border-radius:6px;overflow:hidden">'+
+        '<div style="width:'+pPct+'%;height:100%;background:'+pColor+';border-radius:6px;transition:width 0.4s"></div>'+
+      '</div>'+
+    '</div>'+
+  '</div>';
+}
+
+// ---- SHOLAT QUICK ----
+function renderSQ(){
+  var tk=todayKey();var u=profile==='una';
+  document.getElementById('sq-grid').innerHTML=SHOLAT.map(function(s){
+    var st=shSt(s.id);var done=st==='done';var lk=st==='locked';var ex=st==='expired';
+    var c='sq'+(done?(u?' du':' dv'):'')+(lk?' lk':'')+(ex?' ex':'');
+    return '<div class="'+c+'" onclick="qSholat(\''+s.id+'\')">'+
+      '<div class="sq-ck '+(done?(u?'du':'dv'):'')+'">'+( done?'✓':lk?'·':ex?'—':'○')+'</div>'+
+      '<div class="sq-nm">'+s.name+'</div>'+
+      '<div class="sq-tm">'+String(s.h).padStart(2,'0')+':'+String(s.m).padStart(2,'0')+'</div></div>';
+  }).join('');
+}
+
+function qSholat(id){
+  var st=shSt(id);
+  if(st==='locked'){showNotif('⏰','Belum waktunya sholat '+id+'!');return;}
+  if(st==='expired'){showNotif('😔','Waktu '+id+' sudah lewat.');return;}
+  if(st==='done')return;
+  var tk=todayKey();if(!D[profile].ibadah[tk])D[profile].ibadah[tk]={};
+  D[profile].ibadah[tk][id]=true;
+  saveData();renderSQ();updateHome();renderIbadah();
+  var sh=SHOLAT.find(function(s){return s.id===id;});
+  showNotif('🕌','Alhamdulillah! '+(sh?sh.name:id)+' tercatat!');
+}
+
+// ---- REMINDERS ----
+function renderReminders(){
+  var tk=todayKey();var sc=D[profile].skincare;
+  var cls=profile==='una'?'ri-una':'ri-viki';
+  var rems=[];
+  var sp=SK[profile].pagi;var sm=SK[profile].malam;
+  var pd=sp.filter(function(s){return sc.pagi[tk]&&sc.pagi[tk][s.id];}).length;
+  if(pd<sp.length)rems.push({ic:'☀️',tx:'Skincare pagi belum selesai ('+pd+'/'+sp.length+' step)'});
+  var hr=new Date().getHours();
+  var md=sm.filter(function(s){return sc.malam[tk]&&sc.malam[tk][s.id];}).length;
+  if(hr>=18&&md<sm.length)rems.push({ic:'🌙',tx:'Skincare malam belum selesai!'});
+  if(profile==='una'){
+    var bd=SK.una.body.filter(function(s){return sc.body[tk]&&sc.body[tk][s.id];}).length;
+    if(hr>=18&&bd<SK.una.body.length)rems.push({ic:'💆',tx:'Body care malam belum selesai!'});
+    if(isMask()){var mkd=SK.una.mask.filter(function(s){return sc.mask[tk]&&sc.mask[tk][s.id];}).length;
+      if(mkd<SK.una.mask.length)rems.push({ic:'🌿',tx:'Hari ini hari sheet mask! Jangan lupa!'});}
+  }
+  var pen=SHOLAT.filter(function(s){return shSt(s.id)==='open';});
+  if(pen.length)rems.push({ic:'🕌',tx:'Sholat waktunya sekarang: '+pen.map(function(s){return s.name;}).join(', ')});
+  var el=document.getElementById('remind-list');
+  el.innerHTML=rems.length===0?'<div class="text-muted" style="text-align:center;padding:4px 0">Semua on track! Keren banget 🎉</div>':
+    rems.map(function(r){return'<div class="remind-item '+cls+'"><span style="font-size:1.1rem">'+r.ic+'</span><span class="ri-text">'+r.tx+'</span></div>';}).join('');
+}
+
+function checkSholatAlarm(){
+  var now=new Date();var h=now.getHours();var m=now.getMinutes();
+  var tk=todayKey();var ib=D[profile].ibadah[tk]||{};
+  SHOLAT.forEach(function(s){if(s.h===h&&s.m===m&&!ib[s.id])showNotif('🕌','Waktunya '+s.name+'!');});
+}
+
+// ---- ACTION GRID ----
+function renderActGrid(){
+  var u=profile==='una';
+  var btns=[
+    {ic:'✨',lb:'Skincare',sb:u?'& Body Care':'Pagi & Malam',cl:u?'linear-gradient(135deg,#FFD0EC,#FFBAE0)':'linear-gradient(135deg,#B8ECFF,#8ADDFF)',fn:"showTab('skin')"},
+    {ic:'🕌',lb:'Ibadah',sb:'Sholat & Bonus',cl:u?'linear-gradient(135deg,#F0C0FF,#DDA0F8)':'linear-gradient(135deg,#A0DCFF,#78C8FF)',fn:"showTab('ib')"},
+    {ic:'💰',lb:'Tabungan',sb:'Input Setoran',cl:u?'linear-gradient(135deg,#FFD8B8,#FFC8A0)':'linear-gradient(135deg,#C0F0E8,#98E0D8)',fn:"showTab('sav')"},
+    {ic:'📍',lb:'Lokasi',sb:'Share ke pasangan',cl:u?'linear-gradient(135deg,#FFD0E8,#FFB8D8)':'linear-gradient(135deg,#FFEEA0,#FFE080)',fn:"shareLocation()"}
+  ];
+  document.getElementById('act-grid').innerHTML=btns.map(function(b){
+    return'<div class="act-btn" style="background:'+b.cl+'" onclick="'+b.fn+'">'+
+      '<div class="act-icon">'+b.ic+'</div><div class="act-label">'+b.lb+'</div><div class="act-sub">'+b.sb+'</div></div>';
+  }).join('');
+}
+
+// ---- SKINCARE ----
+function renderSkBtns(){
+  var u=profile==='una';
+  var btns=[
+    {m:'pagi',ic:'☀️',lb:'Skincare Pagi',cl:u?'linear-gradient(135deg,#FFD0EC,#FFBAE0)':'linear-gradient(135deg,#B8ECFF,#8ADDFF)'},
+    {m:'malam',ic:'🌙',lb:'Skincare Malam',cl:u?'linear-gradient(135deg,#E8C0FF,#D4A0F8)':'linear-gradient(135deg,#A0DCFF,#78C8FF)'}
+  ];
+  if(u){
+    btns.push({m:'body',ic:'💆',lb:'Body Care',cl:u?'linear-gradient(135deg,#FFD8B8,#FFC8A0)':'linear-gradient(135deg,#C0F0E8,#98E0D8)'});
+    if(isMask())btns.push({m:'mask',ic:'🌿',lb:'Sheet Mask',cl:u?'linear-gradient(135deg,#F0C0FF,#DDA0F8)':'linear-gradient(135deg,#FFEEA0,#FFE080)'});
+  }
+  document.getElementById('sk-btns').innerHTML=btns.map(function(b){
+    return'<div class="act-btn" style="background:'+b.cl+'" onclick="openRoutine(\''+b.m+'\')">'+
+      '<div class="act-icon">'+b.ic+'</div><div class="act-label">'+b.lb+'</div></div>';
+  }).join('');
+}
+
+function updateSkSt(){
+  var tk=todayKey();var sc=D[profile].skincare;
+  var modes=[{m:'pagi',lb:'☀️ Skincare Pagi'},{m:'malam',lb:'🌙 Skincare Malam'}];
+  if(profile==='una'){
+    modes.push({m:'body',lb:'💆 Body Care'});
+    if(isMask())modes.push({m:'mask',lb:'🌿 Sheet Mask'});
+  }
+  document.getElementById('sk-status').innerHTML=modes.map(function(md){
+    var steps=SK[profile][md.m]||[];
+    var done=steps.filter(function(s){return sc[md.m][tk]&&sc[md.m][tk][s.id];}).length;
+    var cls=done===steps.length&&steps.length>0?'bg':'br';
+    var lb=done===steps.length&&steps.length>0?'Selesai ✓':done+'/'+steps.length+' step';
+    return'<div class="sk-sr"><span class="text-muted">'+md.lb+'</span><span class="badge '+cls+'">'+lb+'</span></div>';
+  }).join('');
+}
+
+// ---- ROUTINE ----
+function openRoutine(mode){
+  curMode=mode;
+  var steps=SK[profile][mode]||[];
+  var tk=todayKey();var saved=D[profile].skincare[mode][tk]||{};
+  var labels={pagi:'☀️ Skincare Pagi',malam:'🌙 Skincare Malam',body:'💆 Body Care',mask:'🌿 Sheet Mask'};
+  document.getElementById('rt-h').textContent=labels[mode];
+  document.getElementById('rt-top').style.background=profile==='una'?'var(--una-50)':'var(--viki-50)';
+  renderSteps(steps,saved,tk);
+  document.getElementById('routine-screen').classList.add('open');
+}
+
+function renderSteps(steps,saved,tk){
+  var fp=-1;for(var i=0;i<steps.length;i++){if(!saved[steps[i].id]){fp=i;break;}}
+  var u=profile==='una';
+  document.getElementById('rt-body').innerHTML=steps.map(function(s,i){
+    var done=saved[s.id]||false;
+    var cur=i===fp;var wait=!done&&i>fp;
+    var cls='step-card'+(done?' done':cur?(u?' au':' av'):' wait');
+    var foot=done?'<div class="step-done-lbl">✅ Selesai!</div>':
+      cur?'<button class="step-go '+(u?'step-go-u':'step-go-v')+'" onclick="startFT('+i+')">▶ Mulai Timer</button>':
+      '<div style="font-size:0.75rem;color:var(--neutral-400);margin-top:9px;text-align:center">Selesaikan step sebelumnya dulu!</div>';
+    return'<div class="'+cls+'"><div class="step-num">Step '+(i+1)+' dari '+steps.length+'</div>'+
+      '<div class="step-name">'+s.name+'</div>'+(s.brand?'<div class="step-brand">'+s.brand+'</div>':'')+
+      '<div class="step-desc">'+s.desc+'</div>'+foot+'</div>';
+  }).join('');
+  var allDone=steps.every(function(s){return saved[s.id];});
+  var db=document.getElementById('rt-done-btn');
+  if(allDone&&steps.length>0){db.classList.remove('hidden');db.style.background=u?'var(--una-500)':'var(--viki-500)';}
+  else db.classList.add('hidden');
+}
+
+function startFT(idx){
+  var steps=SK[profile][curMode]||[];var step=steps[idx];if(!step)return;
+  ftIdx=idx;ftSteps=steps;ftSec=step.t;ftTotal=step.t;ftOn=false;clearInterval(ftIv);
+  var ov=document.getElementById('ft');
+  ov.className=profile==='una'?'ft-una':'ft-viki';
+  ov.classList.add('open');
+  document.getElementById('ft-sn').textContent='Step '+(idx+1)+' dari '+steps.length;
+  document.getElementById('ft-nm').textContent=step.name;
+  document.getElementById('ft-br').textContent=step.brand||'';
+  document.getElementById('ft-dc').textContent=step.desc;
+  document.getElementById('ft-tm').textContent=fmtT(ftSec);
+  var rc=document.getElementById('ft-rc');
+  rc.style.strokeDashoffset='0';
+  rc.style.stroke=profile==='una'?'var(--una-400)':'var(--viki-400)';
+  document.getElementById('ft-btn').textContent='▶ Mulai';
+}
+
+function ftToggle(){
+  if(!ftOn){
+    ftOn=true;document.getElementById('ft-btn').textContent='⏸ Pause';
+    ftIv=setInterval(function(){
+      ftSec--;
+      document.getElementById('ft-tm').textContent=fmtT(ftSec);
+      var prog=ftTotal>0?(ftTotal-ftSec)/ftTotal:0;
+      document.getElementById('ft-rc').style.strokeDashoffset=515*prog;
+      if(ftSec<=0){clearInterval(ftIv);ftOn=false;completeFT();}
+    },1000);
+  } else {
+    ftOn=false;clearInterval(ftIv);document.getElementById('ft-btn').textContent='▶ Lanjut';
+  }
+}
+
+function completeFT(){
+  var step=ftSteps[ftIdx];var tk=todayKey();var mode=curMode;
+  if(!D[profile].skincare[mode][tk])D[profile].skincare[mode][tk]={};
+  D[profile].skincare[mode][tk][step.id]=true;
+  saveData();updateHome();updateSkSt();
+  document.getElementById('ft-btn').textContent='✅ Selesai!';
+  showNotif('✨',step.name+' selesai!');
+  setTimeout(function(){
+    document.getElementById('ft').classList.remove('open');
+    var saved=D[profile].skincare[mode][tk]||{};
+    renderSteps(ftSteps,saved,tk);
+    var ni=ftIdx+1;
+    if(ni<ftSteps.length&&!saved[ftSteps[ni].id])setTimeout(function(){startFT(ni);},700);
+  },1000);
+}
+
+function closeRoutine(){
+  document.getElementById('routine-screen').classList.remove('open');
+  document.getElementById('ft').classList.remove('open');
+  clearInterval(ftIv);ftOn=false;updateSkSt();
+  showNotif('🎉','Rutinitas tersimpan!');
+}
+
+// ---- IBADAH ----
+function renderIbadah(){
+  var tk=todayKey();var ib=D[profile].ibadah[tk]||{};var u=profile==='una';
+  document.getElementById('ib-list').innerHTML=SHOLAT.map(function(s){
+    var st=shSt(s.id);var done=st==='done';var lk=st==='locked';var ex=st==='expired';
+    var cls='ib-item'+(done?(u?' du':' dv'):'')+(lk?' lk':'')+(ex?' ex':'');
+    var dis=lk||ex||done;
+    var meta=String(s.h).padStart(2,'0')+':'+String(s.m).padStart(2,'0')+' – '+String(s.eh).padStart(2,'0')+':'+String(s.em).padStart(2,'0')+' · '+s.poin+' poin · '+(done?'✓ Selesai':lk?'Belum waktunya':ex?'Waktu habis':'Waktunya sekarang!');
+    return'<div class="'+cls+'"><div><div class="ib-lbl">'+s.name+'</div><div class="ib-meta">'+meta+'</div></div>'+
+      '<button class="ck '+(done?(u?'du':'dv'):'')+(dis?' disabled':'')+'" onclick="togSholat(\''+s.id+'\')" '+(dis?'disabled':'')+'>'+
+      (done?'✓':lk?'·':ex?'—':'○')+'</button></div>';
+  }).join('');
+  document.getElementById('bonus-list').innerHTML=BONUS.map(function(b){
+    var done=ib[b.id]||false;var dis=b.sk&&!isSK()&&!done;
+    var cls='ib-item'+(done?(u?' du':' dv'):'')+(dis?' lk':'');
+    return'<div class="'+cls+'"><div><div class="ib-lbl">'+b.name+' <span class="bonus-tag">+'+b.poin+'</span></div><div class="ib-meta">'+b.sub+(dis?' · Bukan Senin/Kamis':'')+'</div></div>'+
+      '<button class="ck '+(done?(u?'du':'dv'):'')+(dis?' disabled':'')+'" onclick="togBonus(\''+b.id+'\')" '+(dis?'disabled':'')+'>'+( done?'✓':'○')+'</button></div>';
+  }).join('');
+}
+
+function togSholat(id){
+  var st=shSt(id);if(st==='locked'||st==='expired'||st==='done')return;
+  var tk=todayKey();if(!D[profile].ibadah[tk])D[profile].ibadah[tk]={};
+  D[profile].ibadah[tk][id]=true;
+  saveData();renderIbadah();renderSQ();updateHome();
+  var sh=SHOLAT.find(function(s){return s.id===id;});
+  showNotif('🕌','Alhamdulillah! '+(sh?sh.name:id)+' tercatat!');
+}
+
+function togBonus(id){
+  var tk=todayKey();if(!D[profile].ibadah[tk])D[profile].ibadah[tk]={};
+  D[profile].ibadah[tk][id]=!D[profile].ibadah[tk][id];
+  var done=D[profile].ibadah[tk][id];
+  saveData();renderIbadah();updateHome();
+  if(done)showNotif('⭐',id==='ngaji'?'MashaAllah! Ngaji +15 poin!':'Alhamdulillah! Puasa +25 poin!');
+}
+
+// ---- SAVINGS ----
+function setTx(t){
+  txType=t;
+  ['m','k','r'].forEach(function(x){
+    document.getElementById('txb-'+x).className='tx-btn'+(x===t?' s'+x:'');
+  });
+  document.getElementById('rw-wrap').classList.toggle('hidden',t!=='r');
+  var btn=document.getElementById('tx-save');
+  var bgs={m:'var(--green)',k:'var(--red)',r:'#3B82F6'};
+  btn.style.background=bgs[t];
+  btn.textContent=t==='m'?'Simpan Pemasukan':t==='k'?'Simpan Pengeluaran':'Simpan Reimburse';
+}
+
+function addTx(){
+  var am=parseInt(document.getElementById('tx-am').value)||0;
+  var de=document.getElementById('tx-de').value||'Transaksi';
+  if(am<=0){showNotif('⚠️','Masukkin jumlahnya dulu ya!');return;}
+  var rw=txType==='r'?document.getElementById('rw-who').value:null;
+  var tx={id:Date.now(),type:txType,amount:am,desc:de,
+    date:new Date().toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric'}),
+    by:profile,rw:rw};
+  if(txType==='m')D.savings.balance+=am;
+  else if(txType==='k')D.savings.balance-=am;
+  else if(txType==='r')D.savings.billing[rw].reimburse=(D.savings.billing[rw].reimburse||0)+am;
+  D.savings.history.unshift(tx);
+  saveData();renderSavings();
+  document.getElementById('tx-am').value='';
+  document.getElementById('tx-de').value='';
+  showNotif('💰','Transaksi tersimpan!');
+}
+
+function renderSavings(){
+  document.getElementById('saldo-num').textContent=fmtRp(D.savings.balance);
+  var b=D.savings.billing;
+  var TARGET=217000;
+  var uR=b.una.reimburse||0;var vR=b.viki.reimburse||0;
+  var uNet=Math.max(TARGET-uR,0);var vNet=Math.max(TARGET-vR,0);
+  document.getElementById('bill-list').innerHTML=
+    '<div class="bill-row"><div><div style="font-size:0.88rem;font-weight:600;color:var(--neutral-800)">Una 🦋</div>'+
+    '<div class="text-muted">Target: Rp 217.000'+(uR>0?' - reimburse '+fmtRp(uR):'')+'</div></div>'+
+    '<span class="badge bg">Setor '+fmtRp(uNet)+'</span></div>'+
+    '<div class="bill-row"><div><div style="font-size:0.88rem;font-weight:600;color:var(--neutral-800)">Viki 🐊</div>'+
+    '<div class="text-muted">Target: Rp 217.000'+(vR>0?' - reimburse '+fmtRp(vR):'')+'</div></div>'+
+    '<span class="badge bg">Setor '+fmtRp(vNet)+'</span></div>';
+  var h=D.savings.history;
+  var icos={m:'💚',k:'❤️',r:'💙'};
+  var bgs={m:'var(--green-light)',k:'var(--red-light)',r:'#EFF6FF'};
+  var cls={m:'var(--green)',k:'var(--red)',r:'#2563EB'};
+  var sgn={m:'+',k:'-',r:'R'};
+  document.getElementById('tx-hist').innerHTML=h.length===0?
+    '<div class="text-muted" style="text-align:center;padding:14px">Belum ada transaksi</div>':
+    h.slice(0,30).map(function(tx){
+      return'<div class="hist-item">'+
+        '<div class="hist-ico" style="background:'+bgs[tx.type]+'">'+icos[tx.type]+'</div>'+
+        '<div class="hist-inf"><div class="hist-nm">'+tx.desc+(tx.rw?' (dari '+tx.rw+')':'')+'</div>'+
+        '<div class="hist-mt">'+tx.date+' · '+(tx.by==='una'?'Una 🦋':'Viki 🐊')+'</div></div>'+
+        '<div class="hist-am" style="color:'+cls[tx.type]+'">'+sgn[tx.type]+fmtRp(tx.amount)+'</div></div>';
+    }).join('');
+}
+
+// ---- VOUCHERS ----
+function renderVouchers(){
+  var wpct=calcWpct(profile);
+  document.getElementById('wpct-lbl').textContent=wpct+'%';
+  var wn=weekNum();var dn=dayNum();
+  var myV=getMyVouchers();
+  var html='';
+  myV.forEach(function(v,i){
+    var w=i+1;
+    var claimed=D.vouchers[profile]&&D.vouchers[profile][v.id];
+    var wUnlocked=w<=wn;
+    var unlocked=wpct>=80&&wUnlocked;
+    if(!unlocked&&!claimed){
+      html+='<div class="voucher-locked">'+
+        '<div class="vl-icon">'+v.icon+'</div>'+
+        '<div class="vl-info"><div class="vl-week">Minggu ke-'+w+'</div>'+
+        '<div class="vl-name">???</div>'+
+        '<div class="vl-pct">Progress '+wpct+'% (perlu ≥80%)</div></div>'+
+        '<div style="font-size:1.4rem;opacity:0.35">🔒</div></div>';
+    } else {
+      var claimCol=getClaimColor(v.color);
+      html+=buildTicket(v,w,claimed,wpct,claimCol,false);
+    }
+  });
+  // Special voucher
+  var spClaimed=D.vouchers[profile]&&D.vouchers[profile]['special'];
+  var spUnlocked=wpct>=80&&dn>=28;
+  if(!spUnlocked&&!spClaimed){
+    html+='<div class="voucher-locked" style="background:linear-gradient(135deg,#EAD8FF,#F8EEFF)">'+
+      '<div class="vl-icon">🎁</div>'+
+      '<div class="vl-info"><div class="vl-week">Voucher Spesial 30 Hari</div>'+
+      '<div class="vl-name" style="color:rgba(255,255,255,0.4)">???</div>'+
+      '<div class="vl-pct">Tersedia di hari ke-28+</div></div>'+
+      '<div style="font-size:1.4rem;opacity:0.35">🔒</div></div>';
+  } else {
+    html+=buildTicket(VOUCHER_SPECIAL,'🌟',spClaimed,wpct,'#B09000',true);
+  }
+  document.getElementById('vou-list').innerHTML=html;
+}
+
+function getClaimColor(colorClass){
+  var map={'vc-1':'#8860CC','vc-2':'#C88840','vc-3':'#30A890','vc-4':'#D05080','vc-5':'#3098D0','vc-6':'#9050C8','vc-7':'#A09000','vc-8':'#20A898','vc-special':'#B09000'};
+  return map[colorClass]||'#444';
+}
+
+function buildTicket(v,week,claimed,wpct,claimCol,isSpecial){
+  var weekLabel=isSpecial?'✨ VOUCHER SPESIAL 30 HARI':'MINGGU KE-'+week;
+  var footer=claimed?
+    '<span class="ticket-claimed">✅ Sudah Diklaim!</span>':
+    (wpct>=80?
+      '<span class="ticket-locked-msg"></span><button class="ticket-claim-btn" style="color:'+claimCol+'" onclick="claimV(\''+v.id+'\')">Klaim! 🎉</button>':
+      '<span class="ticket-locked-msg">🔓 Progress '+wpct+'% (perlu ≥80%)</span>');
+  return'<div class="ticket '+v.color+'">'+
+    '<div class="ticket-top">'+
+    '<div class="ticket-header"><div class="ticket-week">'+weekLabel+'</div>'+(claimed?'<span class="ticket-badge">DIKLAIM</span>':'<span class="ticket-badge">'+wpct+'%</span>')+'</div>'+
+    '<div class="ticket-icon">'+v.icon+'</div>'+
+    '<div class="ticket-name">'+v.name+'</div>'+
+    '<div class="ticket-tagline">'+v.detail.substring(0,80)+'...</div>'+
+    '</div>'+
+    '<div class="ticket-divider"><div class="ticket-divider-circle-l"></div><div class="ticket-divider-line"></div><div class="ticket-divider-circle-r"></div></div>'+
+    '<div class="ticket-bottom">'+
+    '<div class="ticket-detail">'+v.detail+'</div>'+
+    footer+
+    '</div></div>';
+}
+
+function claimV(vid){
+  if(!D.vouchers[profile])D.vouchers[profile]={};
+  D.vouchers[profile][vid]=true;
+  saveData();renderVouchers();
+  var v=ALL_VOUCHERS.find(function(x){return x.id===vid;})||VOUCHER_SPECIAL;
+  var extra=vid==='special'?
+    '<div style="background:linear-gradient(135deg,#FFF0A0,#FFFAC0);color:#706000;padding:14px;border-radius:12px;font-size:0.86rem;line-height:1.7;margin:12px 0">'+
+    'Selamat! Ini adalah hadiah tulus dan penuh cinta atas komitmenmu menyelesaikan 30 hari challenge. Kamu luar biasa! 💕</div>':'';
+  openModal('🎫 Voucher Diklaim!',
+    '<div style="text-align:center;padding:14px 0">'+
+    '<div style="font-size:3.2rem;margin-bottom:10px">'+v.icon+'</div>'+
+    '<div style="font-size:1.15rem;font-weight:800;color:var(--neutral-800);margin-bottom:6px">'+v.name+'</div>'+
+    '<div style="font-size:0.85rem;color:var(--neutral-500);line-height:1.6;margin-bottom:14px">'+v.detail+'</div>'+
+    extra+
+    '<div style="background:var(--green-light);padding:10px;border-radius:10px;font-size:0.8rem;color:#15803D">'+
+    '✅ Diklaim pada '+new Date().toLocaleDateString('id-ID',{day:'2-digit',month:'long',year:'numeric'})+'</div></div>');
+}
+
+// ---- PEEK ----
+function peekViki(){
+  if(profile!=='una')return;
+  if(peekLeft<=0){showNotif('🔒','Kesempatan lihat Viki sudah habis!');return;}
+  peekLeft--;D.peekLeft=peekLeft;saveData();
+  var tk=todayKey();
+  var vIb=D.viki.ibadah[tk]||{};var vSc=D.viki.skincare;
+  var vSh=SHOLAT.filter(function(s){return vIb[s.id];}).length;
+  var vPg=SK.viki.pagi.filter(function(s){return vSc.pagi[tk]&&vSc.pagi[tk][s.id];}).length;
+  var vMl=SK.viki.malam.filter(function(s){return vSc.malam[tk]&&vSc.malam[tk][s.id];}).length;
+  var vBd=SK.viki.body.filter(function(s){return vSc.body[tk]&&vSc.body[tk][s.id];}).length;
+  if(peekLeft<=0)document.getElementById('peek-btn').style.display='none';
+  var cells=[
+    {l:'Sholat',v:vSh+'/5'},{l:'Total Poin',v:calcScore('viki')+''},
+    {l:'SK Pagi',v:vPg+'/'+SK.viki.pagi.length},{l:'SK Malam',v:vMl+'/'+SK.viki.malam.length},
+    {l:'Body Care',v:vBd+'/'+SK.viki.body.length},{l:'Streak',v:calcStreak('viki')+' hari'}
+  ];
+  openModal('👀 Aktivitas Viki (sisa '+peekLeft+'x)',
+    '<div style="background:var(--viki-50);border-radius:14px;padding:14px;margin-bottom:10px">'+
+    '<div class="text-muted" style="margin-bottom:10px">Data hari ini</div>'+
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">'+
+    cells.map(function(c){return'<div style="background:#fff;border-radius:10px;padding:10px;text-align:center">'+
+      '<div style="font-size:1.15rem;font-weight:800;color:var(--viki-500)">'+c.v+'</div>'+
+      '<div style="font-size:0.68rem;color:var(--neutral-400);margin-top:2px">'+c.l+'</div></div>';}).join('')+
+    '</div></div>'+
+    '<div class="text-muted" style="text-align:center">Sisa '+peekLeft+'x lagi bisa ngintip Viki 👀</div>');
+}
+
+// ---- LOCATION ----
+function shareLocation(){
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(p){
+      var url='https://maps.google.com/?q='+p.coords.latitude+','+p.coords.longitude;
+      window.open('https://wa.me/?text='+encodeURIComponent('📍 Lokasi '+(profile==='una'?'Una 🦋':'Viki 🐊')+': '+url),'_blank');
+    },function(){window.open('https://maps.google.com','_blank');});
+  } else window.open('https://maps.google.com','_blank');
+}
+
+// ---- MODAL ----
+function openModal(t,b){document.getElementById('modal-title').textContent=t;document.getElementById('modal-body').innerHTML=b;document.getElementById('modal-ov').classList.add('open');}
+function closeModal(){document.getElementById('modal-ov').classList.remove('open');}
+function closeModalOut(e){if(e.target===document.getElementById('modal-ov'))closeModal();}
+
+// ---- NOTIF ----
+function showNotif(ic,tx){
+  var el=document.getElementById('notif');
+  document.getElementById('notif-ic').textContent=ic;
+  document.getElementById('notif-tx').textContent=tx;
+  el.style.background=profile==='una'?'var(--una-500)':'var(--viki-500)';
+  el.classList.add('show');
+  clearTimeout(ntIv);ntIv=setTimeout(function(){el.classList.remove('show');},3000);
+}
+
+
+// ---- SETTINGS ----
+function showSettingsModal(){
+  var el=document.getElementById('settings-ov');
+  el.style.display='flex';
+}
+function closeSettingsModal(){
+  document.getElementById('settings-ov').style.display='none';
+}
+function closeSettingsOut(e){
+  if(e.target.id==='settings-ov') closeSettingsModal();
+}
+function confirmReset(){
+  closeSettingsModal();
+  document.getElementById('confirm-reset-ov').style.display='flex';
+}
+function closeConfirmReset(){
+  document.getElementById('confirm-reset-ov').style.display='none';
+}
+function doLogout(){
+  closeSettingsModal();
+  localStorage.removeItem('uv_profile');
+  location.reload();
+}
+async function doReset(){
+  closeConfirmReset();
+  try{
+    localStorage.removeItem('uv_v3');
+    localStorage.removeItem('uv_profile');
+    await db.ref('partner/una').remove();
+    await db.ref('partner/viki').remove();
+  }catch(e){}
+  location.reload();
+}
+
+init();setTx('m');
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
